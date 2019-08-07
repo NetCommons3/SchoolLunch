@@ -1,0 +1,39 @@
+{
+  "name": "edumap/school_lunch",
+  "description": "SchoolLunch is Tinydb ",
+  "homepage": "http://www.netcommons.org/",
+  "extra": {
+    "installer-paths": {
+      "app/Plugin/{$name}": [
+        "type:cakephp-plugin"
+      ]
+    }
+  },
+  "require": {
+    "cakedc/migrations": "~2.2",
+    "edumap/tinydb": "@dev",
+  },
+  "authors": [
+    {
+      "name": "Ryuji AMANO (RYUS INC.)",
+      "email": "ryuji@ryus.co.jp",
+      "homepage": "http://ryus.co.jp/",
+      "role": "Developer"
+    },
+  ],
+  "type": "cakephp-plugin",
+  "keywords": [
+    "cakephp",
+    "tinydb",
+    "school_lunch"
+  ],
+  "config": {
+    "vendor-dir": "vendors"
+  },
+  "autoload": {
+    "psr-4": {
+      "Edumap\\SchoolLunch\\": "",
+      "Edumap\\SchoolLunch\\TestCase\\": "Test/Case/"
+    }
+  }
+}
