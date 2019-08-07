@@ -22,7 +22,7 @@
 <?php echo $this->Form->hidden('TinydbFrameSetting.articles_per_page'); ?>
 <?php //echo $this->Form->hidden('TinydbFrameSetting.comments_per_page'); ?>
 
-<?php echo $this->Form->hidden('Tinydb.name', ['value' => '出欠情報']);?>
+<?php echo $this->Form->hidden('Tinydb.name', ['value' => '給食情報']);?>
 <?php //echo $this->NetCommonsForm->input('Tinydb.name', array(
 //		'type' => 'text',
 //		'label' => __tinydbd('tinydb', 'Tinydb name'),
