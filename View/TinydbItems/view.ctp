@@ -38,6 +38,10 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
 	</div>
 
+	<div>
+		<?php echo $tinydbItem['TinydbItem']['body2']; ?>
+	</div>
+
 	<?php
 	// アレルゲン表示
 	$this->request->data['SchoolLunchItem'] = $tinydbItem['SchoolLunchItem'];
