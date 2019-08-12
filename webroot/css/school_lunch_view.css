@@ -23,5 +23,5 @@
 }
 .school-lunch-view-allergen input[type="checkbox"][checked]::before {
 	font-family: 'Glyphicons Halflings';
-	content:"\e013";
+	content:"\e013"; /* glyphicon-ok */
 }
