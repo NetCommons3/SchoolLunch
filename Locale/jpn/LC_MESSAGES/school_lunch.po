@@ -1,0 +1,8 @@
+msgid "Title"
+msgstr "日付"
+
+msgid "Body1"
+msgstr "献立"
+
+msgid "date_format"
+msgstr "Y年n月j日"

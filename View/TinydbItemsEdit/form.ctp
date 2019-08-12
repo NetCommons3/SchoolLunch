@@ -1,8 +1,13 @@
-<?php echo $this->NetCommonsHtml->script([
+<?php
+echo $this->NetCommonsHtml->script([
 	'/tinydb/js/tinydb.js',
 	'/tinydb/js/tinydb_item_edit.js',
 	'/tags/js/tags.js',
-]); ?>
+]);
+echo $this->NetCommonsHtml->css([
+		'/school_lunch/css/school_lunch_form.css',
+]);
+?>
 <?php
 $dataJson = json_encode(
 	$this->NetCommonsTime->toUserDatetimeArray($this->request->data, array('TinydbItem.publish_start'))
@@ -63,11 +68,15 @@ $dataJson = json_encode(
 						'ng-init' => sprintf('title=\'%s\'', h($this->request->data['TinydbItem']['title']))
 						//'value' => $this->request->data['TinydbItem']['title']
 					]);
-					echo $this->NetCommonsForm->input('SchoolLunchItem.place', [
-						'type' => 'text',
-						'label' => __d('school_lunch', 'Place')
-					]);
+					//echo $this->NetCommonsForm->input('SchoolLunchItem.place', [
+					//	'type' => 'text',
+					//	'label' => __d('school_lunch', 'Place')
+					//]);
 					?>
+					<?php
+
+					?>
+
 					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body1', array(
 						'label' => __d('school_lunch', 'Body1'),
 						'required' => true,
@@ -85,6 +94,58 @@ $dataJson = json_encode(
 						'rows' => 12
 					));?>
 					</div>
+
+					<?php
+					// アレルゲン入力
+					$schoolLunchItemModel = ClassRegistry::init('SchoolLunch.SchoolLunchItem');
+					$fields = $schoolLunchItemModel->schema();
+					$dutyList = [];
+					$recommendationList = [];
+					foreach ($fields as $field => $properties) {
+						if (strpos($field, 'allergen_duty_') !== false) {
+							$dutyList[$field] = $properties;
+						}
+						if (strpos($field, 'allergen_rec_') !== false) {
+							$recommendationList[$field] = $properties;
+						}
+					}
+					?>
+					<div class="form-group">
+						<label class="control-label">アレルゲン（義務）</label>
+						<div class="school-lunch-form-allergen-dusty-checkboxes">
+							<?php foreach ($dutyList as $field => $properties): ?>
+								<?php // 義務
+								echo $this->NetCommonsForm->checkbox(
+									'SchoolLunchItem.' . $field,
+									[
+										//'div' => false,
+										'inline' => true,
+										'label' => str_replace('アレルゲン_義務_', '', $properties['comment']),
+									]
+								);
+								?>
+							<?php endforeach; ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label">アレルゲン（推奨）</label>
+						<div class="school-lunch-form-allergen-recommendation-checkboxes">
+							<?php foreach ($recommendationList as $field => $properties): ?>
+								<?php // 義務
+								echo $this->NetCommonsForm->checkbox(
+									'SchoolLunchItem.' . $field,
+									[
+										//'div' => false,
+										'inline' => true,
+										'label' => str_replace('アレルゲン_推奨_', '', $properties['comment']),
+									]
+								);
+								?>
+							<?php endforeach; ?>
+						</div>
+					</div>
+
 
 					<?php
 					echo $this->NetCommonsForm->input('TinydbItem.publish_start',

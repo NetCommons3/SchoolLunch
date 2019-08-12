@@ -21,10 +21,6 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 	</h2>
 	<?php echo $this->element('Tinydb.item_meta_info', array('tinydbItem' => $tinydbItem)); ?>
 
-	<div >
-		<strong><?=__d('school_lunch', '場所')?> : </strong><?php echo $tinydbItem['SchoolLunchItem']['place']?>
-	</div>
-
 	<div class="clearfix tinydb_item_body1">
 		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
 	</div>
