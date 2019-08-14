@@ -1,27 +1,27 @@
-.school-lunch-view-allergen-dusty-checkboxes .checkbox-inline {
-	width:150px;
-	margin-left: 0;
-}
+/*.school-lunch-view-allergen-dusty-checkboxes .checkbox-inline {*/
+/*	width:150px;*/
+/*	margin-left: 0;*/
+/*}*/
 
-.school-lunch-view-allergen-recommendation-checkboxes .checkbox-inline {
-	width:150px;
-	margin-left: 0;
-}
+/*.school-lunch-view-allergen-recommendation-checkboxes .checkbox-inline {*/
+/*	width:150px;*/
+/*	margin-left: 0;*/
+/*}*/
 
-.school-lunch-view-allergen .checkbox-inline {
-	cursor: default;
-}
-.school-lunch-view-allergen label {
-	cursor: default;
-}
+/*.school-lunch-view-allergen .checkbox-inline {*/
+/*	cursor: default;*/
+/*}*/
+/*.school-lunch-view-allergen label {*/
+/*	cursor: default;*/
+/*}*/
 
-.school-lunch-view-allergen input[type="checkbox"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	/*cursor: default;*/
-}
-.school-lunch-view-allergen input[type="checkbox"][checked]::before {
-	font-family: 'Glyphicons Halflings';
-	content:"\e013"; /* glyphicon-ok */
-}
+/*.school-lunch-view-allergen input[type="checkbox"] {*/
+/*	-webkit-appearance: none;*/
+/*	-moz-appearance: none;*/
+/*	appearance: none;*/
+/*	!*cursor: default;*!*/
+/*}*/
+/*.school-lunch-view-allergen input[type="checkbox"][checked]::before {*/
+/*	font-family: 'Glyphicons Halflings';*/
+/*	content:"\e013"; !* glyphicon-ok *!*/
+/*}*/

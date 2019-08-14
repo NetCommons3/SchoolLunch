@@ -4,7 +4,7 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 echo $this->NetCommonsHtml->css([
 	'/tinydb/css/tinydb.css',
 	'/likes/css/style.css',
-	'/school_lunch/css/school_lunch_view.css'
+	'/school_lunch/css/style.css'
 ]);
 echo $this->NetCommonsHtml->script([
 	'/likes/js/likes.js',
@@ -33,6 +33,22 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 	</div>
 
 	<?php echo $this->element('Tinydb.item_meta_info'); ?>
+
+	<?php if (isset($tinydbItem['UploadFile'])):?>
+	<div class="text-center">
+		<?php echo $this->Html->image(
+			$this->NetCommonsHtml->url(
+				[
+					'controller' => 'school_lunch_download',
+					'action' => 'download',
+					'key' => $tinydbItem['TinydbItem']['key'],
+					'lunch_photo',
+					'medium',
+				]
+			)
+		); ?>
+	</div>
+	<?php endif; ?>
 
 	<div>
 		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
@@ -96,7 +112,6 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 				<?php endforeach; ?>
 			</div>
 		</div>
-
 	</div>
 
 	<?php //echo $this->element('Tinydb.item_footer'); ?>

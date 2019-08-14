@@ -26,7 +26,21 @@ class SchoolLunchItem extends SchoolLunchAppModel {
 	public $useDbConfig = 'master';
 
 	public $actsAs = [
-		'Tinydb.TinydbValidation'
+		'NetCommons.OriginalKey',
+		'Tinydb.TinydbValidation',
+		'Files.Attachment' => [
+			'lunch_photo' => [
+				'thumbnailSizes' => array(
+					// デフォルトはAttachmentビヘイビアできめてあるが、下記の様に設定も可能
+					// NC2 800 > 640 > 480だった
+					//'big' => '800ml',
+					'medium' => '400ml',
+					//'small' => '200ml',
+					//'thumb' => '80x80',
+				),
+				'contentKeyFieldName' => 'id'
+			],
+		],
 	];
 
 /**
@@ -46,8 +60,6 @@ class SchoolLunchItem extends SchoolLunchAppModel {
 			),
 		),
 	);
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
  * belongsTo associations

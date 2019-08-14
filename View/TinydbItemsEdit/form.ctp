@@ -28,7 +28,7 @@ $dataJson = json_encode(
 					),
 					'div' => 'form-control',
 					'novalidate' => true,
-
+					'type' => 'file'
 				)
 			);
 			$this->NetCommonsForm->unlockField('Tag');
@@ -40,8 +40,6 @@ $dataJson = json_encode(
 			<?php echo $this->NetCommonsForm->hidden('Block.id', array(
 				'value' => Current::read('Block.id'),
 			)); ?>
-
-			<?php //echo $this->NetCommonsForm->hidden('SchoolLunchItem.id')?>
 
 			<div class="panel-body">
 
@@ -68,13 +66,12 @@ $dataJson = json_encode(
 						'ng-init' => sprintf('title=\'%s\'', h($this->request->data['TinydbItem']['title']))
 						//'value' => $this->request->data['TinydbItem']['title']
 					]);
-					//echo $this->NetCommonsForm->input('SchoolLunchItem.place', [
-					//	'type' => 'text',
-					//	'label' => __d('school_lunch', 'Place')
-					//]);
 					?>
 					<?php
-
+					echo $this->NetCommonsForm->uploadFile('TinydbItem.lunch_photo', [
+						'label' => '献立写真',
+						'remove' => true
+					]);
 					?>
 
 					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body1', array(

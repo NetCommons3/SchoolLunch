@@ -21,19 +21,37 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 	</h2>
 	<?php echo $this->element('Tinydb.item_meta_info', array('tinydbItem' => $tinydbItem)); ?>
 
+	<?php if (isset($tinydbItem['UploadFile'])):?>
+		<div class="text-center">
+			<?php echo $this->Html->image(
+				$this->NetCommonsHtml->url(
+					[
+						'controller' => 'school_lunch_download',
+						'action' => 'download',
+						'key' => $tinydbItem['TinydbItem']['key'],
+						'lunch_photo',
+						'medium',
+					]
+				)
+			); ?>
+		</div>
+	<?php endif; ?>
+
 	<div class="clearfix tinydb_item_body1">
 		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
 	</div>
-	<?php if ($tinydbItem['TinydbItem']['body2']) : ?>
-		<div class="clearfix" ng-hide="isShowBody2">
-			<a ng-click="showBody2()"><?php echo __tinydbd('tinydb', 'Read more'); ?></a>
-		</div>
-		<div class="clearfix" ng-show="isShowBody2">
-			<?php echo $tinydbItem['TinydbItem']['body2'] ?>
-		</div>
-		<div class="clearfix" ng-show="isShowBody2">
-			<a ng-click="hideBody2()"><?php echo __tinydbd('tinydb', 'Close'); ?></a>
-		</div>
-	<?php endif ?>
+
+	<div class="clearfix" ng-hide="isShowBody2">
+		<a ng-click="showBody2()"><?php echo __tinydbd('tinydb', 'Read more'); ?></a>
+	</div>
+	<div class="clearfix" ng-show="isShowBody2">
+		<?php echo $tinydbItem['TinydbItem']['body2'] ?>
+
+		<?php echo $this->element('SchoolLunch.TinydbItems/allergen', ['tinydbItem' => $tinydbItem])?>
+	</div>
+	<div class="clearfix" ng-show="isShowBody2">
+		<a ng-click="hideBody2()"><?php echo __tinydbd('tinydb', 'Close'); ?></a>
+	</div>
+
 	<?php echo $this->element('Tinydb.item_footer', array('tinydbItem' => $tinydbItem, 'index' => true)); ?>
 </article>

@@ -26,3 +26,22 @@ $eventManager->attach(
 		$data['SchoolLunchItem']['register_date'] = $data['TinydbItem']['title'];
 	}
 );
+
+// TinydbItemにAttachmentBehaviorを設定
+$eventManager->attach(
+	'SchoolLunch.Tinydb.Model.TinydbItem.construct',
+	function(TinydbItem &$tinydbItem) {
+		$tinydbItem->actsAs['Files.Attachment'] = [
+			'lunch_photo' => [
+				'thumbnailSizes' => array(
+					// デフォルトはAttachmentビヘイビアできめてあるが、下記の様に設定も可能
+					//'big' => '800ml',
+					'medium' => '400ml',
+					//'small' => '200ml',
+					//'thumb' => '80x80',
+				),
+				//'contentKeyFieldName' => 'id'
+			],
+		];
+	}
+);
