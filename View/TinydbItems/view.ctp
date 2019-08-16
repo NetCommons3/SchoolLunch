@@ -34,29 +34,32 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 	<?php echo $this->element('Tinydb.item_meta_info'); ?>
 
+
 	<?php if (isset($tinydbItem['UploadFile'])):?>
-	<div class="text-center">
-		<?php echo $this->Html->image(
-			$this->NetCommonsHtml->url(
-				[
-					'controller' => 'school_lunch_download',
-					'action' => 'download',
-					'key' => $tinydbItem['TinydbItem']['key'],
-					'lunch_photo',
-					'medium',
-				]
-			)
-		); ?>
-	</div>
+		<div class="text-center">
+			<?php echo $this->Html->image(
+				$this->NetCommonsHtml->url(
+					[
+						'controller' => 'school_lunch_download',
+						'action' => 'download',
+						'key' => $tinydbItem['TinydbItem']['key'],
+						'lunch_photo',
+						'medium',
+					]
+				)
+			); ?>
+		</div>
 	<?php endif; ?>
 
-	<div>
-		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
+	<div class="text-center">
+		<?php echo nl2br(h($tinydbItem['TinydbItem']['body1'])); ?>
 	</div>
 
-	<div>
-		<?php echo $tinydbItem['TinydbItem']['body2']; ?>
-	</div>
+<!--	<div>-->
+<!--		--><?php //echo $tinydbItem['TinydbItem']['body2']; ?>
+<!--	</div>-->
+
+	<hr>
 
 	<?php
 	// アレルゲン表示

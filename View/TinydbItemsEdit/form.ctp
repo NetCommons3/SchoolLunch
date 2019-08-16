@@ -74,23 +74,29 @@ $dataJson = json_encode(
 					]);
 					?>
 
-					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body1', array(
+					<?php //echo $this->NetCommonsForm->wysiwyg('TinydbItem.body1', array(
+					//	'label' => __d('school_lunch', 'Body1'),
+					//	'required' => true,
+					//	'rows' => 12
+					//));?>
+					<?php echo $this->NetCommonsForm->input('TinydbItem.body1', array(
+						'type' => 'textarea',
 						'label' => __d('school_lunch', 'Body1'),
 						'required' => true,
 						'rows' => 12
 					));?>
 
-					<div>
-						<label><input type="checkbox" ng-model="writeBody2"/><?php echo __d('tinydb', 'Write body2') ?>
-						</label>
-					</div>
-
-					<div class="form-group" ng-show="writeBody2">
-					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body2', array(
-						'label' => __d('tinydb', 'Body2'),
-						'rows' => 12
-					));?>
-					</div>
+<!--					<div>-->
+<!--						<label><input type="checkbox" ng-model="writeBody2"/>--><?php //echo __d('tinydb', 'Write body2') ?>
+<!--						</label>-->
+<!--					</div>-->
+<!---->
+<!--					<div class="form-group" ng-show="writeBody2">-->
+<!--					--><?php //echo $this->NetCommonsForm->wysiwyg('TinydbItem.body2', array(
+//						'label' => __d('tinydb', 'Body2'),
+//						'rows' => 12
+//					));?>
+<!--					</div>-->
 
 					<?php
 					// アレルゲン入力

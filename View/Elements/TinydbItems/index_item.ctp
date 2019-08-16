@@ -37,8 +37,8 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 		</div>
 	<?php endif; ?>
 
-	<div class="clearfix tinydb_item_body1">
-		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
+	<div class="clearfix tinydb_item_body1 text-center">
+		<?php echo nl2br(h($tinydbItem['TinydbItem']['body1'])); ?>
 	</div>
 
 	<div class="clearfix" ng-hide="isShowBody2">

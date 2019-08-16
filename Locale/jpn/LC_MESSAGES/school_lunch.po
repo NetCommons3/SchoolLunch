@@ -6,3 +6,6 @@ msgstr "献立"
 
 msgid "date_format"
 msgstr "Y年n月j日"
+
+msgid "Read more"
+msgstr "アレルゲン"
