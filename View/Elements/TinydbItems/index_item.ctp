@@ -19,10 +19,10 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 		?>
 		<?php echo $this->Workflow->label($tinydbItem['TinydbItem']['status']); ?>
 	</h2>
-	<?php echo $this->element('Tinydb.item_meta_info', array('tinydbItem' => $tinydbItem)); ?>
+	<?php //echo $this->element('Tinydb.item_meta_info', array('tinydbItem' => $tinydbItem)); ?>
 
 	<?php if (isset($tinydbItem['UploadFile'])):?>
-		<div class="text-center">
+		<div class="text-center school-lunch-photo-box">
 			<?php echo $this->Html->image(
 				$this->NetCommonsHtml->url(
 					[
@@ -32,12 +32,15 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 						'lunch_photo',
 						'medium',
 					]
-				)
+				),
+					[
+						'class' => 'school-lunch-photo img-responsive'
+					]
 			); ?>
 		</div>
 	<?php endif; ?>
 
-	<div class="clearfix tinydb_item_body1 text-center">
+	<div class="clearfix tinydb_item_body1 text-left">
 		<?php echo nl2br(h($tinydbItem['TinydbItem']['body1'])); ?>
 	</div>
 

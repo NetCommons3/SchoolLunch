@@ -36,7 +36,7 @@ $eventManager->attach(
 				'thumbnailSizes' => array(
 					// デフォルトはAttachmentビヘイビアできめてあるが、下記の様に設定も可能
 					//'big' => '800ml',
-					'medium' => '400ml',
+					'medium' => '300h',
 					//'small' => '200ml',
 					//'thumb' => '80x80',
 				),

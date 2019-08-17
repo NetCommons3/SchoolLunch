@@ -1,14 +1,18 @@
 <?php
 $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 
-echo $this->NetCommonsHtml->css([
-	'/tinydb/css/tinydb.css',
-	'/likes/css/style.css',
-	'/school_lunch/css/style.css'
-]);
-echo $this->NetCommonsHtml->script([
-	'/likes/js/likes.js',
-]);
+echo $this->NetCommonsHtml->css(
+	[
+		'/tinydb/css/tinydb.css',
+		'/likes/css/style.css',
+		'/school_lunch/css/style.css'
+	]
+);
+echo $this->NetCommonsHtml->script(
+	[
+		'/likes/js/likes.js',
+	]
+);
 //debug($this->NetCommonsHtml->url());
 echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 ?>
@@ -18,7 +22,10 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 		<?php echo $this->LinkButton->toList(); ?>
 	</div>
 	<div class="pull-right">
-		<?php echo $this->element('Tinydb.TinydbItems/edit_link', array('status' => $tinydbItem['TinydbItem']['status'])); ?>
+		<?php echo $this->element(
+			'Tinydb.TinydbItems/edit_link',
+			array('status' => $tinydbItem['TinydbItem']['status'])
+		); ?>
 	</div>
 </header>
 
@@ -26,17 +33,17 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 	<div class="tinydb_view_title clearfix">
 		<?php echo $this->NetCommonsHtml->blockTitle(
-				$this->SchoolLunchItem->titleFormat($tinydbItem['TinydbItem']['title']),
-				$tinydbItem['TinydbItem']['title_icon'],
-				array('status' => $this->Workflow->label($tinydbItem['TinydbItem']['status']))
-			); ?>
+			$this->SchoolLunchItem->titleFormat($tinydbItem['TinydbItem']['title']),
+			$tinydbItem['TinydbItem']['title_icon'],
+			array('status' => $this->Workflow->label($tinydbItem['TinydbItem']['status']))
+		); ?>
 	</div>
 
 	<?php echo $this->element('Tinydb.item_meta_info'); ?>
 
 
-	<?php if (isset($tinydbItem['UploadFile'])):?>
-		<div class="text-center">
+	<?php if (isset($tinydbItem['UploadFile'])): ?>
+		<div class="text-center school-lunch-photo-box">
 			<?php echo $this->Html->image(
 				$this->NetCommonsHtml->url(
 					[
@@ -46,18 +53,17 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 						'lunch_photo',
 						'medium',
 					]
-				)
+				),
+				[
+					'class' => 'school-lunch-photo img-responsive',
+				]
 			); ?>
 		</div>
 	<?php endif; ?>
 
-	<div class="text-center">
+	<div class="text-left">
 		<?php echo nl2br(h($tinydbItem['TinydbItem']['body1'])); ?>
 	</div>
-
-<!--	<div>-->
-<!--		--><?php //echo $tinydbItem['TinydbItem']['body2']; ?>
-<!--	</div>-->
 
 	<hr>
 
@@ -77,76 +83,31 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 		}
 	}
 	?>
-	<div class="school-lunch-view-allergen">
-		<div class="form-group">
-			<label class="control-label">アレルゲン（義務）</label>
-			<div class="school-lunch-view-allergen-dusty-checkboxes">
-				<?php foreach ($dutyList as $field => $properties): ?>
-					<?php // 義務
-					echo $this->NetCommonsForm->checkbox(
-						'SchoolLunchItem.' . $field,
-						[
-							//'div' => false,
-							'inline' => true,
-							'label' => str_replace('アレルゲン_義務_', '', $properties['comment']),
-							'disabled'
-						]
-					);
-					?>
-				<?php endforeach; ?>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label class="control-label">アレルゲン（推奨）</label>
-			<div class="school-lunch-view-allergen-recommendation-checkboxes">
-				<?php foreach ($recommendationList as $field => $properties): ?>
-					<?php // 義務
-					echo $this->NetCommonsForm->checkbox(
-						'SchoolLunchItem.' . $field,
-						[
-							//'div' => false,
-							'inline' => true,
-							'label' => str_replace('アレルゲン_推奨_', '', $properties['comment']),
-							'disabled'
-						]
-					);
-					?>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</div>
+	<?php echo $this->element('SchoolLunch.TinydbItems/allergen', ['tinydbItem' => $tinydbItem])?>
 
 	<?php //echo $this->element('Tinydb.item_footer'); ?>
 
 	<!-- Tags -->
 	<?php if (isset($tinydbItem['Tag'])) : ?>
-	<div>
-		<?php echo __tinydbd('tinydb', 'tag'); ?>
-		<?php foreach ($tinydbItem['Tag'] as $tinydbTag): ?>
-			<?php echo $this->NetCommonsHtml->link(
-				$tinydbTag['name'],
-				array('controller' => 'school_lunch_items', 'action' => 'tag', 'frame_id' => Current::read('Frame.id'), 'id' => $tinydbTag['id'])
-			); ?>&nbsp;
-		<?php endforeach; ?>
-	</div>
+		<div>
+			<?php echo __tinydbd('tinydb', 'tag'); ?>
+			<?php foreach ($tinydbItem['Tag'] as $tinydbTag): ?>
+				<?php echo $this->NetCommonsHtml->link(
+					$tinydbTag['name'],
+					array(
+						'controller' => 'school_lunch_items',
+						'action' => 'tag',
+						'frame_id' => Current::read('Frame.id'),
+						'id' => $tinydbTag['id']
+					)
+				); ?>&nbsp;
+			<?php endforeach; ?>
+		</div>
 	<?php endif ?>
 
 	<div>
 		<?php /* コンテンツコメント */ ?>
 		<?php echo $this->ContentComment->index($tinydbItem); ?>
-		<!--<div class="row">-->
-		<!--	<div class="col-xs-12">-->
-		<!--		--><?php //echo $this->element('ContentComments.index', array(
-		//			'pluginKey' => $this->request->params['plugin'],
-		//			'contentKey' => $tinydbItem['TinydbItem']['key'],
-		//			'isCommentApproved' => $tinydbSetting['use_comment_approval'],
-		//			'useComment' => $tinydbSetting['use_comment'],
-		//			'contentCommentCnt' => $tinydbItem['ContentCommentCnt']['cnt'],
-		//			'redirectUrl' => $this->NetCommonsHtml->url(array('plugin' => 'tinydb', 'controller' => 'tinydb_items', 'action' => 'view', 'frame_id' => Current::read('Frame.id'), 'key' => $tinydbItem['TinydbItem']['key'])),
-		//		)); ?>
-		<!--	</div>-->
-		<!--</div>-->
 	</div>
 </article>
 

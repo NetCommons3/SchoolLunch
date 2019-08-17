@@ -25,3 +25,11 @@
 	font-family: 'Glyphicons Halflings';
 	content:"\e013"; /* glyphicon-ok */
 }
+
+/*献立写真*/
+.school-lunch-photo-box {
+	background: #cecece;
+}
+.school-lunch-photo.img-responsive{
+	margin: auto;
+}
