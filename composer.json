@@ -19,7 +19,7 @@
       "email": "ryuji@ryus.co.jp",
       "homepage": "http://ryus.co.jp/",
       "role": "Developer"
-    },
+    }
   ],
   "type": "cakephp-plugin",
   "keywords": [
