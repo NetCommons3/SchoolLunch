@@ -30,7 +30,6 @@ class SchoolLunchItem extends SchoolLunchAppModel {
  */
 	public $actsAs = [
 		'NetCommons.OriginalKey',
-		'Tinydb.TinydbValidation',
 	];
 
 /**
