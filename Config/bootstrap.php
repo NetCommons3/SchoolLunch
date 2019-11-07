@@ -3,10 +3,10 @@ require_once dirname(APP) . '/vendors/autoload.php';
 //App::uses('CakeEventManager', 'Event');
 
 //$eventManager = CakeEventManager::instance();
-//$eventManager->attach(new \Edumap\SchoolLunch\Lib\Event\TinydbItemListener());
+//$eventManager->attach(new \NetCommons\SchoolLunch\Lib\Event\TinydbItemListener());
 
 
-$eventManager = \Edumap\Tinydb\Lib\EventManager::instance();
+$eventManager = \NetCommons\Tinydb\Lib\EventManager::instance();
 
 // 新規Itemのデフォルトの変更
 $eventManager->attach(

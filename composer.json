@@ -1,5 +1,5 @@
 {
-  "name": "edumap/school-lunch",
+  "name": "netcommons/school-lunch",
   "description": "SchoolLunch is Tinydb ",
   "homepage": "http://www.netcommons.org/",
   "extra": {
@@ -11,7 +11,7 @@
   },
   "require": {
     "cakedc/migrations": "~2.2",
-    "edumap/tinydb": "@dev"
+    "netcommons/tinydb": "@dev"
   },
   "authors": [
     {
@@ -32,8 +32,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Edumap\\SchoolLunch\\": "",
-      "Edumap\\SchoolLunch\\TestCase\\": "Test/Case/"
+      "NetCommons\\SchoolLunch\\": "",
+      "NetCommons\\SchoolLunch\\TestCase\\": "Test/Case/"
     }
   }
 }
