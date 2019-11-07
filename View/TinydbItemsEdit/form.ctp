@@ -1,7 +1,7 @@
 <?php
 echo $this->NetCommonsHtml->script([
 	'/tinydb/js/tinydb.js',
-	'/tinydb/js/tinydb_item_edit.js',
+	//'/tinydb/js/tinydb_item_edit.js',
 	'/tags/js/tags.js',
 ]);
 echo $this->NetCommonsHtml->css([
@@ -13,7 +13,7 @@ $dataJson = json_encode(
 	$this->NetCommonsTime->toUserDatetimeArray($this->request->data, array('TinydbItem.publish_start'))
 );
 ?>
-<div class="tinydbEntries form" ng-controller="Tinydb" ng-init="init(<?php echo h($dataJson) ?>)">
+<div class="tinydbEntries form" >
 	<article>
 		<h1><?php echo h($tinydb['Tinydb']['name']) ?></h1>
 		<div class="panel panel-default">
