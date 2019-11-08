@@ -1,12 +1,24 @@
 <?php
+/**
+ * SchoolLunchDownloadController
+ */
 App::uses('TinydbAppController', 'Tinydb.Controller');
 
+/**
+ * Class SchoolLunchDownloadController
+ */
 class SchoolLunchDownloadController extends TinydbAppController {
 
+/**
+ * @var array
+ */
 	public $uses = [
 		'Tinydb.TinydbItem'
 	];
 
+/**
+ * @var array
+ */
 	public $components = [
 		'Files.Download',
 	];
@@ -40,7 +52,6 @@ class SchoolLunchDownloadController extends TinydbAppController {
 		}
 		return $permission;
 	}
-
 
 /**
  * download

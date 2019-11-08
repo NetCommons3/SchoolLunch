@@ -19,7 +19,7 @@ $eventManager->attach(
 	}
 );
 
- //タイトル（日付）をregister_dateに日付型でも保存
+//タイトル（日付）をregister_dateに日付型でも保存
 $eventManager->attach(
 	'SchoolLunch.Tinydb.Model.TinydbItem.afterSave',
 	function ($created, $options, &$data) {
@@ -30,7 +30,7 @@ $eventManager->attach(
 // TinydbItemにAttachmentBehaviorを設定
 $eventManager->attach(
 	'SchoolLunch.Tinydb.Model.TinydbItem.construct',
-	function(TinydbItem &$tinydbItem) {
+	function (TinydbItem &$tinydbItem) {
 		$tinydbItem->actsAs['Files.Attachment'] = [
 			'lunch_photo' => [
 				'thumbnailSizes' => array(
