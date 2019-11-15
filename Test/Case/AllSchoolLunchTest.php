@@ -9,9 +9,8 @@
  * @copyright Copyright 2014, NetCommons Project
  */
 
-require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
-
 App::uses('NetCommonsTestSuite', 'NetCommons.TestSuite');
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 
 /**
  * All _Test Test suite

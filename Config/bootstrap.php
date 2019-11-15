@@ -1,8 +1,14 @@
 <?php
 /**
- * Bootstrap file
+ * bootstrap.php
+ *
+ * @author Ryuji AMANO <ryuji@ryus.co.jp>
+ * @license http://www.netcommons.org/license.txt NetCommons License
  */
 
+/**
+ * require
+ */
 require_once dirname(APP) . '/vendors/autoload.php';
 
 $eventManager = \NetCommons\Tinydb\Lib\EventManager::instance();
