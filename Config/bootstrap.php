@@ -1,14 +1,9 @@
 <?php
 /**
- * Bootstrap
+ * Bootstrap file
  */
 
 require_once dirname(APP) . '/vendors/autoload.php';
-//App::uses('CakeEventManager', 'Event');
-
-//$eventManager = CakeEventManager::instance();
-//$eventManager->attach(new \NetCommons\SchoolLunch\Lib\Event\TinydbItemListener());
-
 
 $eventManager = \NetCommons\Tinydb\Lib\EventManager::instance();
 
