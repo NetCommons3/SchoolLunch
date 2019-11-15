@@ -2,6 +2,7 @@
 /**
  * 新規SchoolLunchItemのデフォルト値
  */
+
 $config['SchoolLunch'] = [
 	'TinydbItemDefault' => [
 		'TinydbItem' => [
