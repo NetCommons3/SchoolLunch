@@ -1,15 +1,40 @@
-<?php 
+<?php
+/**
+ * Schema
+ */
+
+/**
+ * Class SchoolLunchSchema
+ */
 class SchoolLunchSchema extends CakeSchema {
 
+/**
+ * @var string connection
+ */
 	public $connection = 'master';
 
+/**
+ * before
+ *
+ * @param array $event event
+ * @return bool
+ */
 	public function before($event = array()) {
 		return true;
 	}
 
+/**
+ * after
+ *
+ * @param array $event event
+ * @return void
+ */
 	public function after($event = array()) {
 	}
 
+/**
+ * @var array school_lunch_items
+ */
 	public $school_lunch_items = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => true, 'key' => 'primary'),
 		'tinydb_item_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),

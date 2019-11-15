@@ -1,4 +1,11 @@
 <?php
+/**
+ * AddSchoolLunchItems Migration
+ */
+
+/**
+ * Class AddSchoolLunchItems
+ */
 class AddSchoolLunchItems extends CakeMigration {
 
 /**

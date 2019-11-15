@@ -10,14 +10,14 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
 class SchoolLunchDownloadController extends TinydbAppController {
 
 /**
- * @var array
+ * @var array models
  */
 	public $uses = [
 		'Tinydb.TinydbItem'
 	];
 
 /**
- * @var array
+ * @var array components
  */
 	public $components = [
 		'Files.Download',

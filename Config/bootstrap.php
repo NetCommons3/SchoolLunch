@@ -1,4 +1,8 @@
 <?php
+/**
+ * Bootstrap
+ */
+
 require_once dirname(APP) . '/vendors/autoload.php';
 //App::uses('CakeEventManager', 'Event');
 
