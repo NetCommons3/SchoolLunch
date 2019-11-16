@@ -86,18 +86,6 @@ $dataJson = json_encode(
 						'rows' => 12
 					));?>
 
-<!--					<div>-->
-<!--						<label><input type="checkbox" ng-model="writeBody2"/>--><?php //echo __d('tinydb', 'Write body2') ?>
-<!--						</label>-->
-<!--					</div>-->
-<!---->
-<!--					<div class="form-group" ng-show="writeBody2">-->
-<!--					--><?php //echo $this->NetCommonsForm->wysiwyg('TinydbItem.body2', array(
-//						'label' => __d('tinydb', 'Body2'),
-//						'rows' => 12
-//					));?>
-<!--					</div>-->
-
 					<?php
 					// アレルゲン入力
 					$schoolLunchItemModel = ClassRegistry::init('SchoolLunch.SchoolLunchItem');
