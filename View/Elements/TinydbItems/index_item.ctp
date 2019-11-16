@@ -23,16 +23,16 @@ $this->SchoolLunchItem = $this->Helpers->load('SchoolLunch.SchoolLunchItem');
 
 	<?php if (isset($tinydbItem['UploadFile'])):?>
 		<div class="text-center school-lunch-photo-box">
-			<?php echo $this->Html->image(
-				$this->NetCommonsHtml->url(
+			<?php echo $this->NetCommonsHtml->image(
+				//$this->NetCommonsHtml->url(
 					[
 						'controller' => 'school_lunch_download',
 						'action' => 'download',
 						'key' => $tinydbItem['TinydbItem']['key'],
 						'lunch_photo',
 						'medium',
-					]
-				),
+					],
+				//),
 					[
 						'class' => 'school-lunch-photo img-responsive'
 					]

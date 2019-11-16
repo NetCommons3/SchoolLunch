@@ -44,16 +44,16 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 	<?php if (isset($tinydbItem['UploadFile'])): ?>
 		<div class="text-center school-lunch-photo-box">
-			<?php echo $this->Html->image(
-				$this->NetCommonsHtml->url(
+			<?php echo $this->NetCommonsHtml->image(
+				//$this->NetCommonsHtml->url(
 					[
 						'controller' => 'school_lunch_download',
 						'action' => 'download',
 						'key' => $tinydbItem['TinydbItem']['key'],
 						'lunch_photo',
 						'medium',
-					]
-				),
+					],
+				//),
 				[
 					'class' => 'school-lunch-photo img-responsive',
 				]
@@ -87,7 +87,6 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 	<?php //echo $this->element('Tinydb.item_footer'); ?>
 
-	<!-- Tags -->
 	<?php if (isset($tinydbItem['Tag'])) : ?>
 		<div>
 			<?php echo __tinydbd('tinydb', 'tag'); ?>
