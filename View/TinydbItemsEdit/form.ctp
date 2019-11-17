@@ -3,9 +3,11 @@ echo $this->NetCommonsHtml->script([
 	'/tinydb/js/tinydb.js',
 	//'/tinydb/js/tinydb_item_edit.js',
 	'/tags/js/tags.js',
+	'/data_types/js/data_types.jquery.js',
 ]);
 echo $this->NetCommonsHtml->css([
 		'/school_lunch/css/school_lunch_form.css',
+		'/school_lunch/css/style.css',
 ]);
 ?>
 <?php
@@ -67,10 +69,38 @@ $dataJson = json_encode(
 						//'value' => $this->request->data['TinydbItem']['title']
 					]);
 					?>
+
+					<?php
+					echo $this->NetCommonsForm->label('TinydbItem.lunch_photo', '献立写真');
+					?>
+					<div class="school-lunch-photo-box">
+						<?php
+						$url = null;
+						if (!empty($this->request->data['UploadFile']['lunch_photo'])) {
+							// 「この記事を元に追加」のときはfrom_keyで画像表示
+							$key = $this->request->data['TinydbItem']['key'] ?? $this->request->query('from_key');
+							$url = [
+								'controller' => 'school_lunch_download',
+								'action' => 'download',
+								'key' => $key,
+								'lunch_photo',
+								'medium',
+							];
+						}
+						echo $this->NetCommonsHtml->image(
+							$url,
+							[
+								'class' => 'school-lunch-photo img-responsive',
+								'id' => 'TinydbItemLunchPhotoImage'
+							]
+						);
+						?>
+					</div>
 					<?php
 					echo $this->NetCommonsForm->uploadFile('TinydbItem.lunch_photo', [
-						'label' => '献立写真',
-						'remove' => true
+						'label' => false,
+						'remove' => true,
+						'data-type-key' => 'image',
 					]);
 					?>
 
